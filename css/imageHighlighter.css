@@ -1,0 +1,18 @@
+/*******************************
+ Image Highlighter Specific CSS 
+ *******************************/
+ /* Link List: currently hovered/selected */
+a.current { color: #fff; }
+
+/* Hide & Position Descriptions */
+ul.imgHL2 p, span.desc { display: none; }
+.description, .description2 { margin: 1em auto; clear: both; width: 450px; height: 2.4em; }
+
+/* General imgHighLight (overlay and highlight) */
+.imgHLOverlay { background: #000; opacity: .5; filter: alpha(opacity=50); } /* overlay color & opacity */
+.imgHLDark, .imgHLLight, .imgHLOverlay { padding: 0; margin: 0; } /* overlay and highlight divs */
+
+/* imgHighLight Edit Mode CSS */
+.imgHLEdit { } /* Edit link */
+.imgHLInfo, .imgHLCoords { margin: 5px auto; } /* divs that contain mouse coordinates and other info */
+.imgHLLocked { color: #f00; } /* locked mouse coordinate styling */

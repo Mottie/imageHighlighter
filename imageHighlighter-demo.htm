@@ -1,0 +1,101 @@
+<html><head>
+ <title>imgHighLighter Demo</title>
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+ <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
+ <script type="text/javascript" src="js/jquery.hoverIntent.minified.js"></script>
+ <script type="text/javascript" src="js/jquery.imageHighlighter.min.js"></script>
+ <link rel="stylesheet" href="css/demo.css" type="text/css" />
+ <link rel="stylesheet" href="css/imageHighlighter.css" type="text/css" />
+
+<script type="text/javascript">
+/* window load to ensure all images are loaded */
+$(window).load(function(){
+ $('#imgHL').imageHighlighter({
+  list         : '.imgHL a',
+  descrip      : 'span', // span is sibling of list link (default is 'p')
+  hoverTimeout : 50
+ });
+ 
+  $('#imgHL2').imageHighlighter({
+  borderColor  : '#fc0',
+  borderSize   : 3,
+  list         : 'ul.imgHL2 a',
+  descripClass : '.description2'
+ });
+})
+</script>
+
+</head><body>
+<div class="header">
+<h2>ImageHighlighter v1.0</h2>
+<p>This plugin was inspired by the <a href="http://spaceforaname.com/galleryview">GalleryView plugin</a>. I've left the original image and descriptions from that site below as well as an additional example. For more details visit <a href="http://wowmotty.blogspot.com/2010/06/imagehighlighter-v10.html">my blog.</a></p>
+</div>
+
+<div class="body">
+
+ <div class="left">
+  <h2>Anatomy of a Gallery</h2>
+   <p>Mouseover the links below to view the various elements<br>that make up GalleryView.</p>
+   <p class="imgHL text">
+    The GalleryView plugin layout consists of the <span><a href="#" rel="0,0,450,170">Panel</a><span class="desc">All your content lives here. Use an image for photo galleries, HTML for text content. Use iframes or AJAX to view content from other pages or websites.</span></span>
+    which contains the content. Partially covering this content is an <span><a class="box" href="#" rel="0,132,450,170">overlay</a><span class="desc">An optional element that lets you give a little more information about the content in each panel. Overlays can be placed at the top or bottom of your panels</span></span>
+    where you can add descriptions. The <span><a href="#" rel="0,170,450,245">filmstrip</a><span class="desc">Thumbnails for all your panels are displayed here. Extra frames are displayed as the gallery moves from panel to panel. The filmstrip can reside at the top or bottom of the gallery</span></span>
+    portion contains some of the other <span><a href="#" rel="166,170,225,245">frames</a><span class="desc">The filmstrip consists of frames, each containing a small image representing the corresponding panel.</span></span>
+    you can view by just clicking on it. Of course each frame has a <span><a href="#" rel="166,227,225,240">caption</a><span class="desc">Optional element to give users a title for each frame. If enabled, captions are populated from each images &quot;title&quot; attribute.</span></span>
+    with a frame title.<br>
+    <br>
+    The ImageHighlighter plugin allows you to switch into an <a href="#" class="imgHLEdit">edit mode</a> which reveals the coordinates inside the image to make finding the highlight coordinates easier.
+    <br>
+   </p>
+   <br>
+   <img id="imgHL" src="images/main.jpg" alt="" />
+   <div class="imgHL description"></div>
+
+ </div> <!-- close left -->
+
+ <div class="right">
+  <h2>IrfanView</h2>
+  <p>Mouseover the links below to view the various elements<br>that make up the Irfan window.</p>
+  <div>
+   <ul class="imgHL2">
+    <li>
+     <a href="#" rel="0,0,500,25">Header</a>
+     <p>This is the Window Header</p>
+    </li>
+    <li>
+     <a href="#" rel="0,26,208,42">Menu Bar</a>
+     <p>This is the Menu Bar, click on any of the words to open a menu</p>
+    </li>
+    <li>
+     <a href="#" rel="0,43,500,70">Toolbar</a>
+     <p>This is the Toolbar. The most used options from the menu are usually placed here</p>
+    </li>
+    <li>
+     <a href="#" rel="66,83,435,410">Avatar</a>
+     <p>The avatar I always use :P</p>
+    </li>
+    <li>
+     <a href="#" rel="0,416,498,436">Status</a>
+     <p>This is the status bar that shows useful information</p>
+    </li>
+    <li><a href="#" class="imgHLEdit">Edit Mode</a></li>
+   </ul>
+   <br>
+   <img id="imgHL2" src="images/irfan.jpg" alt="" />
+   <div class="description2"></div>
+  </div>
+ </div> <!-- close right -->
+
+</div> <!-- close body -->
+
+<div class="footer">
+<em>Get the plugin:</em>
+ <a href="js/jquery.imageHighlighter.js">Uncompressed</a> | <a href="js/jquery.imageHighlighter.min.js">Minimized</a> | <a href="demo.zip">Zipped Demo</a><br>
+<br>
+Known bugs:<br>
+* When the window is repositioned, the highlights may be off until it is refreshed again when you hover over a link (especially while in edit mode), and sometimes you'll need to reload the page.</li>
+<br>
+<br>
+If you find any bugs or suggestions, you can contact me at wowmotty at g mail dot com
+</div>
+</body></html>
