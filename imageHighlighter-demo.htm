@@ -1,61 +1,73 @@
-<html><head>
- <title>imgHighLighter Demo</title>
- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/jquery-ui.min.js"></script>
- <script type="text/javascript" src="js/jquery.hoverIntent.minified.js"></script>
- <script type="text/javascript" src="js/jquery.imageHighlighter.min.js"></script>
- <link rel="stylesheet" href="css/demo.css" type="text/css" />
- <link rel="stylesheet" href="css/imageHighlighter.css" type="text/css" />
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" > 
+<title>imageHighlighter Demo</title>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.hoverIntent.minified.js"></script>
+<script type="text/javascript" src="js/jquery.imageHighlighter.min.js"></script>
+<script type="text/javascript" src="js/jquery.imageHighlighterEditor.min.js"></script>
+<link rel="stylesheet" href="css/demo.css" type="text/css">
+<link rel="stylesheet" href="css/imageHighlighter.css" type="text/css">
+
+<!-- Optional enhancement using jCrop : http://deepliquid.com/content/Jcrop.html -->
+<script type="text/javascript" src="js/jquery.Jcrop-min.js"></script>
+<link rel="stylesheet" href="css/jquery.Jcrop.css" type="text/css">
 
 <script type="text/javascript">
 /* window load to ensure all images are loaded */
 $(window).load(function(){
- $('#imgHL').imageHighlighter({
-  list         : '.imgHL a',
-  descrip      : 'span', // span is sibling of list link (default is 'p')
-  hoverTimeout : 50
- });
- 
-  $('#imgHL2').imageHighlighter({
-  borderColor  : '#fc0',
-  borderSize   : 3,
-  list         : 'ul.imgHL2 a',
-  descripClass : '.description2'
- });
-})
+ $('#imgHL')
+  .imageHighlighter({
+   list         : '.imgHL a',
+   descrip      : 'span', // span is sibling of list link (default is 'p')
+   hoverTimeout : 50
+  })
+  .imageHighlighterEditor();
+
+ $('#imgHL2')
+  .imageHighlighter({
+   borderColor  : '#fc0',
+   borderSize   : 3,
+   list         : 'ul.imgHL2 a',
+   descripClass : '.description2'
+  })
+  .imageHighlighterEditor({
+   useJcrop: false
+  });
+
+ // this targets all images that have imageHighlighter set up on them,
+ // it's faster than adding it after each imageHighlighter definition
+ // $('div.imageHighlighter img').imageHighlighterEditor();
+});
 </script>
 
-</head><body>
+</head>
+<body>
+
 <div class="header">
-<h2>ImageHighlighter v1.0</h2>
-<p>This plugin was inspired by the <a href="http://spaceforaname.com/galleryview">GalleryView plugin</a>. I've left the original image and descriptions from that site below as well as an additional example. For more details visit <a href="http://wowmotty.blogspot.com/2010/06/imagehighlighter-v10.html">my blog.</a></p>
+ <h2>ImageHighlighter v1.01</h2>
+ <p>This plugin was inspired by the <a href="http://spaceforaname.com/galleryview">GalleryView plugin</a>.
+ I've left the original image and descriptions from that site below as well as an additional example. For more details visit
+ <a href="http://wowmotty.blogspot.com/2010/06/imagehighlighter-v10.html">my blog.</a>
+ </p>
 </div>
 
 <div class="body">
-
  <div class="left">
   <h2>Anatomy of a Gallery</h2>
-   <p>Mouseover the links below to view the various elements<br>that make up GalleryView.</p>
-   <p class="imgHL text">
-    The GalleryView plugin layout consists of the <span><a href="#" rel="0,0,450,170">Panel</a><span class="desc">All your content lives here. Use an image for photo galleries, HTML for text content. Use iframes or AJAX to view content from other pages or websites.</span></span>
-    which contains the content. Partially covering this content is an <span><a class="box" href="#" rel="0,132,450,170">overlay</a><span class="desc">An optional element that lets you give a little more information about the content in each panel. Overlays can be placed at the top or bottom of your panels</span></span>
-    where you can add descriptions. The <span><a href="#" rel="0,170,450,245">filmstrip</a><span class="desc">Thumbnails for all your panels are displayed here. Extra frames are displayed as the gallery moves from panel to panel. The filmstrip can reside at the top or bottom of the gallery</span></span>
-    portion contains some of the other <span><a href="#" rel="166,170,225,245">frames</a><span class="desc">The filmstrip consists of frames, each containing a small image representing the corresponding panel.</span></span>
-    you can view by just clicking on it. Of course each frame has a <span><a href="#" rel="166,227,225,240">caption</a><span class="desc">Optional element to give users a title for each frame. If enabled, captions are populated from each images &quot;title&quot; attribute.</span></span>
-    with a frame title.<br>
-    <br>
-    The ImageHighlighter plugin allows you to switch into an <a href="#" class="imgHLEdit">edit mode</a> which reveals the coordinates inside the image to make finding the highlight coordinates easier.
-    <br>
+   <p class="message">Mouseover the links below to view the various elements that make up GalleryView. <em>Double click to enable edit mode using the jCrop plugin.</em></p>
+   <p class="imgHL">
+    The GalleryView plugin layout consists of the <span><a href="#" rel="0,0,450,170">panel</a><span class="desc">All your content lives here. Use an image for photo galleries, HTML for text content. Use iframes or AJAX to view content from other pages or websites.</span></span> which contains the content. Partially covering this content is an <span><a class="box" href="#" rel="0,132,450,170">overlay</a><span class="desc">An optional element that lets you give a little more information about the content in each panel. Overlays can be placed at the top or bottom of your panels</span></span> where you can add descriptions. The <span><a href="#" rel="0,170,450,245">filmstrip</a><span class="desc">Thumbnails for all your panels are displayed here. Extra frames are displayed as the gallery moves from panel to panel. The filmstrip can reside at the top or bottom of the gallery</span></span> portion contains some of the other <span><a href="#" rel="166,170,225,245">frames</a><span class="desc">The filmstrip consists of frames, each containing a small image representing the corresponding panel.</span></span> you can view by just clicking on it. Of course each frame has a <span><a href="#" rel="166,227,225,240">caption</a><span class="desc">Optional element to give users a title for each frame. If enabled, captions are populated from each images &quot;title&quot; attribute.</span></span> containing the title of the frame.
    </p>
-   <br>
-   <img id="imgHL" src="images/main.jpg" alt="" />
+   <img id="imgHL" src="images/main.jpg" alt="" >
    <div class="imgHL description"></div>
 
  </div> <!-- close left -->
 
  <div class="right">
   <h2>IrfanView</h2>
-  <p>Mouseover the links below to view the various elements<br>that make up the Irfan window.</p>
+  <p class="message">Mouseover the links below to view the various elements that make up the Irfan window. <em>Double click to enable standard edit mode.</em></p>
   <div>
    <ul class="imgHL2">
     <li>
@@ -75,13 +87,12 @@ $(window).load(function(){
      <p>The avatar I always use :P</p>
     </li>
     <li>
-     <a href="#" rel="0,416,498,436">Status</a>
+     <a href="#" rel="0,416,500,439">Status</a>
      <p>This is the status bar that shows useful information</p>
     </li>
-    <li><a href="#" class="imgHLEdit">Edit Mode</a></li>
    </ul>
-   <br>
-   <img id="imgHL2" src="images/irfan.jpg" alt="" />
+   <br style="clear:both">
+   <img id="imgHL2" src="images/irfan.jpg" alt="" >
    <div class="description2"></div>
   </div>
  </div> <!-- close right -->
@@ -89,13 +100,60 @@ $(window).load(function(){
 </div> <!-- close body -->
 
 <div class="footer">
-<em>Get the plugin:</em>
- <a href="js/jquery.imageHighlighter.js">Uncompressed</a> | <a href="js/jquery.imageHighlighter.min.js">Minimized</a> | <a href="demo.zip">Zipped Demo</a><br>
-<br>
-Known bugs:<br>
-* When the window is repositioned, the highlights may be off until it is refreshed again when you hover over a link (especially while in edit mode), and sometimes you'll need to reload the page.</li>
-<br>
-<br>
-If you find any bugs or suggestions, you can contact me at wowmotty at g mail dot com
+ <div class="columns">
+  <div class="left">
+
+   <em><strong>Get the plugin</strong></em> (zip includes entire demo):<br>
+    <a href="js/jquery.imageHighlighter.js">Uncompressed</a> | <a href="js/jquery.imageHighlighter.min.js">Minimized</a> | <a href="demo.zip">Zipped</a>
+   <br>
+   <br>
+    <strong>Version History:</strong><br>
+    <ul>
+     <li>v1.01 (07-06-2010) The ImageHighlighterEditor extension was split out from the original plugin & made compatible with <a  href="http://deepliquid.com/content/Jcrop.html">jCrop</a> plugin.</li>
+     <li>v1.0 (06-30-2010) Major overhaul of code & renaming of plugin.</li>
+     <li>v.91 (09-29-2009) Fixed a few bugs with edit mode.</li>
+     <li>v.90 (09-26-2009) Initial plugin Build.</li>
+   </ul>
+   <br>
+   <strong>Known bugs:</strong><br>
+   <ul>
+    <li>When the window is repositioned, the highlights may be off until it is refreshed again when you hover over a link (especially while in edit mode), and sometimes you'll need to reload the page.</li>
+   </ul>
+   <br>
+   <strong>Contact:</strong><br>
+   <ul>
+    <li>If you find any bugs or suggestions, you can contact me at wowmotty at g mail dot com</li>
+   </ul>
+  </div>
+
+  <div class="right">
+   <strong>Basic Functionality:</strong>
+   <ul>
+    <li>Hover over one of the links to see a highlight box appear over the image.</li>
+   </ul>
+   <br>
+   <strong>Editor with Jcrop plugin:</strong>
+   <ul>
+    <li>Switch into & out of edit mode by double clicking on the gallery image.</li>
+    <li>Coordinates appear after you click and draq out a box over the image.</li>
+   </ul>
+   <br>
+   <strong>Basic Editor Functionality:</strong>
+   <ul>
+    <li>Switch into & out of edit mode by double clicking on the IrfanView image.</li>
+    <li>Coordinates appear when moving over the image.</li>
+    <li>A single click will lock these coordinates, so you can grab the values.</li>
+   </ul>
+   <br>
+   <strong>Setup:</strong>
+   <ul>
+    <li>For more detailed instructions on how to set up the imageHighlighter plugin,
+     please read the <a href="http://wowmotty.blogspot.com/2010/06/imagehighlighter-v10.html">documentation.</a></li>
+   </ul>
+  </div>
+
+ </div>
 </div>
-</body></html>
+
+</body>
+</html>

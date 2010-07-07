@@ -13,6 +13,11 @@
      zindex      : 10              // z-index of highlight box, overlay is automatically made 1 less than this number
     })
 
+    // version 1.01 - moved the editor into an extension
+    $("#imgHL").imageHighlighterEditor({
+     useJcrop    : true            // Use Jcrop plugin if it is available
+    })
+
 **List HTML Tag required attribute**
 
     rel="sx1,sy1,ex2,ey2"

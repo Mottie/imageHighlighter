@@ -1,18 +1,37 @@
 /*******************************
- Image Highlighter Specific CSS 
+ ImageHighlighter Specific CSS 
  *******************************/
  /* Link List: currently hovered/selected */
 a.current { color: #fff; }
 
 /* Hide & Position Descriptions */
 ul.imgHL2 p, span.desc { display: none; }
-.description, .description2 { margin: 1em auto; clear: both; width: 450px; height: 2.4em; }
+.description, .description2 {
+ margin: 1em auto; 
+ clear: both;
+ width: 450px;
+ height: 2.4em;
+ text-align: center;
+}
 
 /* General imgHighLight (overlay and highlight) */
-.imgHLOverlay { background: #000; opacity: .5; filter: alpha(opacity=50); } /* overlay color & opacity */
-.imgHLDark, .imgHLLight, .imgHLOverlay { padding: 0; margin: 0; } /* overlay and highlight divs */
+.imageHighlighter, .imgHLDark, .imgHLLight, .imgHLOverlay { padding: 0; margin: 0; } /* overlay and highlight divs */
+.imgHLOverlay { /* overlay color & opacity */
+ background: #000;
+ opacity: .5;
+ filter: alpha(opacity=50);
+}
 
-/* imgHighLight Edit Mode CSS */
-.imgHLEdit { } /* Edit link */
-.imgHLInfo, .imgHLCoords { margin: 5px auto; } /* divs that contain mouse coordinates and other info */
-.imgHLLocked { color: #f00; } /* locked mouse coordinate styling */
+/**************************
+ imageHighLighterEditor CSS 
+ **************************/
+.imgHLInfo, .imgHLCoords { margin: 5px auto; text-align: center; } /* divs that contain mouse coordinates and other info */
+
+.imgHLCoords input { background: transparent; color: #bbbbff; border: 0; } /* input containing coordinates */
+input.regCoords { width: 50px; } /* "x,y" coords - mouse position */
+input.wideCoords { width: 100px; } /* "x1,y1,x2,y2" coords - full box */
+
+.imgHLEdited .imgHLCoords { background-color: #060; } /* editor mode enabled styling - I originally used outline: #0f0 1px solid, but it doesn't work on IE6-7 */
+.imgHLLocked .imgHLCoords { background-color: #600; } /* locked mouse coordinate styling */
+.imgHLEdited img { border: transparent solid; border-width: 0 2px 2px 0; margin: -1px; } /* add right & bottom edge so mouse can get corner*/
+.jcrop-holder img { top: 0; left: 0 } /* jCrop image positioning fix (for demo floated images) */

@@ -6,23 +6,27 @@ a:link, a:visited { color:#fc0; text-decoration: none; }
 a:hover { color:#ddd; text-decoration: none; }
 a:active { color:#880; text-decoration: none; }
 
-.body {
- width: 1000px;
- margin: 0 auto;
-}
-.header {
+.header, .footer {
  background: #444;
  font-size: 1.1em;
- text-align: center;
  padding: .1em 0 1.5em 0;
  margin: 0 auto;
+}
+h2, .header p {
+ margin: 5px 0;
+ text-align: center;
 }
 .header p {
  font-size: .9em;
  width: 900px;
  margin: 0 auto;
 }
-h2 { margin: 5px 0; }
+
+.body, .columns {
+ width: 1000px;
+ margin: 0 auto;
+ text-align: left;
+}
 .left, .right {
  float: left;
  padding: 10px;
@@ -31,12 +35,27 @@ h2 { margin: 5px 0; }
 .left {
  width: 455px;
 }
-.text { text-align: left; }
-.right li { margin: 0; padding: 5px; list-style-type: none; float: left; }
-
+/* attempt to center ifran view links */
+.body .right ul {
+ padding-left: 110px;
+}
+.body .right li {
+ margin: 0;
+ padding: 5px;
+ list-style-type: none;
+ float: left;
+}
+.message {
+ color: #bbbbff;
+}
 .footer {
- background: #444;
- text-align: left;
  clear: both;
- padding: .5em 4em;
+ height: auto;
+ overflow: hidden;
+ font-size: 0.95em;
+}
+.footer ul, .footer li {
+ margin: 0 10px;
+ padding: 0 5px;
+ list-style-type: disc;
 }
