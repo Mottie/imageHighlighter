@@ -30,4 +30,4 @@ For more details, see [my blog][1] entry and view [the demo][2] source.
 
 
   [1]: http://wowmotty.blogspot.com/2010/06/imagehighlighter-v10.html
-  [2]: http://www.myotherdrive.com/dyn/file/156.320215.30062010.42191.6a64fi/imageHighlighter.htm
+  [2]: http://mottie.github.com/imageHighlighter/index.html
